@@ -1,0 +1,47 @@
+{
+	"name": "deviofoundation.org",
+	"version": "0.0.1",
+	"description": "Ways of thinking, a single goal!",
+	"homepage": "https://deviofoundation.org",
+	"repository": "deviofoundation/deviofoundation.org",
+	"license": "MIT",
+	"author": "CJ Patoilo <cjpatoilo@gmail.com>",
+	"main": "readme.md",
+	"keywords": [
+		"community",
+		"opensource"
+	],
+	"ignore": [
+		"artwork.psd",
+		".appveyor.yml",
+		".editorconfig",
+		".github",
+		".gitignore",
+		".travis.yml"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"ava": "^0.25.0",
+		"boeing": "^0.1.1",
+		"cname": "0.0.2",
+		"editorconfig-tools": "^0.1.1",
+		"eslint": "^4.18.0",
+		"eslint-config-styled": "latest",
+		"husky": "^0.14.3",
+		"inject-ga": "^0.2.4",
+		"marshmallow": "latest",
+		"nyc": "^11.4.1",
+		"rimraf": "^2.6.2",
+		"surge": "^0.20.1"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"build": "rimraf dist && marshmallow -o dist -i artwork.psd -t 'DEV IO Foundation' -d 'Ways of thinking, a single goal!' -f -m && inject-ga dist/index.html -o dist/index.html -c 'UA-24389952-19'",
+		"deploy:staging": "NODE_ENV=staging npm run build && surge -p dist -d staging.deviofoundation.org",
+		"deploy:production": "NODE_ENV=production npm run build && cname dist && boeing dist",
+		"precommit": "npm t",
+		"test": "nyc ava && eslint . -c styled --ignore-path .gitignore && editorconfig-tools check ."
+	}
+}
