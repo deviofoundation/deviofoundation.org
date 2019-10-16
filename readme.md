@@ -1,4 +1,4 @@
-<a align="center" href="https://github.com/deviofoundation/deviofoundation.org"><img width="100%" src="https://cjpatoilo.com/deviofoundation/artwork.png" alt="DEV IO Foundation - Ways of thinking, a single goal!"></a>
+<a align="center" href="https://github.com/deviofoundation/deviofoundation.org"><img width="100%" src="https://repository-images.githubusercontent.com/72778492/426cc880-f031-11e9-8f2c-cb2342086808" alt="DEV IO Foundation - Ways of thinking, a single goal!"></a>
 
 > Ways of thinking, a single goal!
 
